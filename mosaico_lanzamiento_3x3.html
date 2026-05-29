@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rio Maggiore - Mosaico IG 3x3</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-950: #061009;
+      --green-900: #0d1c12;
+      --green-800: #132719;
+      --sage: #9bb795;
+      --sage-soft: #c8d6c1;
+      --ivory: #f6f1e7;
+      --gold: #d8c08a;
+      --line: rgba(246, 241, 231, 0.16);
+      --serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+      --sans: "Raleway", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--green-950);
+      color: var(--ivory);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      width: min(1480px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 34px 0 80px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: grid;
+      gap: 5px;
+      color: rgba(246, 241, 231, 0.66);
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .brand strong {
+      color: var(--ivory);
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      color: rgba(246, 241, 231, 0.72);
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+      gap: 44px;
+      align-items: end;
+      padding: 54px 0 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--sage-soft);
+      font-size: 0.66rem;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      max-width: 780px;
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 7.8vw, 7.8rem);
+      font-weight: 300;
+      line-height: 0.86;
+    }
+
+    .hero-copy {
+      color: rgba(246, 241, 231, 0.66);
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .logo {
+      display: grid;
+      justify-items: center;
+      gap: 5px;
+      color: currentColor;
+      text-align: center;
+    }
+
+    .logo::before {
+      content: "";
+      width: 98px;
+      height: 18px;
+      background: currentColor;
+      opacity: 0.9;
+      mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8,14 C34,2 66,26 100,14 C134,2 168,24 200,12 C212,8 222,10 232,14' stroke='black' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8,28 C34,16 66,40 100,28 C134,16 168,38 200,26 C212,22 222,24 232,28' stroke='black' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8,14 C34,2 66,26 100,14 C134,2 168,24 200,12 C212,8 222,10 232,14' stroke='black' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8,28 C34,16 66,40 100,28 C134,16 168,38 200,26 C212,22 222,24 232,28' stroke='black' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    .logo-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .logo-sub {
+      color: rgba(246, 241, 231, 0.7);
+      font-size: 0.38rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .mosaic-shell {
+      display: grid;
+      gap: 22px;
+    }
+
+    .mosaic-meta {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      color: rgba(246, 241, 231, 0.56);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .mosaic {
+      width: min(100%, 1080px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid rgba(246, 241, 231, 0.16);
+      background: var(--green-900);
+    }
+
+    .tile {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      isolation: isolate;
+      display: grid;
+      place-items: center;
+      padding: clamp(22px, 3vw, 44px);
+      text-align: center;
+      border: 1px solid rgba(246, 241, 231, 0.08);
+      background: var(--green-900);
+    }
+
+    .tile::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background-image: var(--img);
+      background-size: cover;
+      background-position: var(--pos, center);
+      filter: saturate(1.08) contrast(1.04);
+      transform: scale(1.02);
+    }
+
+    .tile::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(6, 16, 9, var(--top, 0.36)), rgba(6, 16, 9, var(--mid, 0.18)) 42%, rgba(6, 16, 9, var(--bottom, 0.48))),
+        radial-gradient(circle at 50% 42%, rgba(6, 16, 9, var(--shade, 0.22)), transparent 54%);
+    }
+
+    .tile.brand-tile::before,
+    .tile.copy-tile::before,
+    .tile.date-tile::before,
+    .tile.cta-tile::before {
+      opacity: 0;
+    }
+
+    .tile.brand-tile,
+    .tile.copy-tile,
+    .tile.date-tile,
+    .tile.cta-tile {
+      background:
+        linear-gradient(135deg, rgba(13, 28, 18, 1), rgba(6, 16, 9, 1)),
+        var(--green-950);
+    }
+
+    .tile.brand-tile::after,
+    .tile.copy-tile::after,
+    .tile.date-tile::after,
+    .tile.cta-tile::after {
+      background:
+        radial-gradient(circle at 50% 30%, rgba(155, 183, 149, 0.16), transparent 42%),
+        linear-gradient(180deg, rgba(6, 16, 9, 0.08), rgba(6, 16, 9, 0.42));
+    }
+
+    .tile-inner {
+      width: min(100%, 90%);
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 18px;
+      z-index: 1;
+      place-self: center;
+      text-align: center;
+      text-shadow: 0 10px 28px rgba(0, 0, 0, 0.62);
+    }
+
+    .kicker {
+      color: var(--sage-soft);
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      line-height: 1.45;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 0 8px 20px rgba(0, 0, 0, 0.72);
+    }
+
+    .title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5.2vw, 5.8rem);
+      font-weight: 300;
+      line-height: 0.88;
+      max-width: 8.4ch;
+      margin-inline: auto;
+      text-align: center;
+      text-wrap: balance;
+      text-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .title.small {
+      font-size: clamp(1.75rem, 3vw, 3.35rem);
+      line-height: 0.94;
+      max-width: 12ch;
+    }
+
+    .copy {
+      max-width: 320px;
+      color: rgba(246, 241, 231, 0.82);
+      font-size: clamp(0.8rem, 1.2vw, 1.08rem);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      width: min(100%, 330px);
+      overflow: hidden;
+      border: 1px solid rgba(246, 241, 231, 0.22);
+      border-radius: 20px;
+      background: rgba(246, 241, 231, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .fact {
+      min-height: 78px;
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      color: var(--ivory);
+      font-size: clamp(0.7rem, 1vw, 0.9rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+      text-transform: uppercase;
+      background: rgba(246, 241, 231, 0.04);
+    }
+
+    .date {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: clamp(5.4rem, 10vw, 11rem);
+      font-weight: 300;
+      line-height: 0.72;
+    }
+
+    .month {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 0.88;
+    }
+
+    .launch-highlight {
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: clamp(2.05rem, 3vw, 3.35rem);
+      font-weight: 300;
+      line-height: 0.92;
+      max-width: 100%;
+      margin-inline: auto;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .launch-subtitle {
+      color: var(--ivory);
+      font-family: var(--serif);
+      font-size: clamp(1.85rem, 2.65vw, 3rem);
+      font-weight: 300;
+      line-height: 0.96;
+      max-width: 100%;
+      margin-inline: auto;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .date-tile .tile-inner {
+      gap: 16px;
+      max-width: 92%;
+    }
+
+    .button {
+      display: grid;
+      place-items: center;
+      min-height: 48px;
+      min-width: min(100%, 280px);
+      padding: 0 22px;
+      border: 1px solid rgba(216, 192, 138, 0.62);
+      border-radius: 999px;
+      background: rgba(6, 16, 9, 0.7);
+      color: var(--ivory);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .tile-number {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      z-index: 2;
+      color: rgba(246, 241, 231, 0.42);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+    }
+
+    .export-grid {
+      margin-top: 70px;
+      display: grid;
+      gap: 22px;
+    }
+
+    .export-grid h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 4.6rem);
+      font-weight: 300;
+      line-height: 0.94;
+    }
+
+    .tiles-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .tile-card {
+      display: grid;
+      gap: 10px;
+    }
+
+    .tile-card .tile {
+      border-color: rgba(246, 241, 231, 0.12);
+    }
+
+    .tile-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: rgba(246, 241, 231, 0.52);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .tiles-list { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .topbar,
+      .hero,
+      .mosaic-meta,
+      .export-grid {
+        display: none;
+      }
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+      .mosaic {
+        width: 100vw;
+        height: 100vw;
+        border: 0;
+      }
+      .tile { border-color: rgba(255,255,255,0.18); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="bundle.html">
+        <strong>Rio Maggiore</strong>
+        Mosaico IG 3x3
+      </a>
+      <nav class="nav" aria-label="Navegacion">
+        <a href="bundle.html">Volver al bundle</a>
+        <a href="variantes_stories_rio_maggiore.html">Stories</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Lanzamiento · Instagram feed</p>
+        <h1>Mosaico 3x3 para Rio Maggiore.</h1>
+      </div>
+      <p class="hero-copy">Grid de nueve publicaciones cuadradas para anunciar apertura comercial. La lectura completa prioriza marca, arquitectura, naturaleza y agenda de visita sin mostrar valores comerciales.</p>
+    </section>
+
+    <section class="mosaic-shell" aria-label="Mosaico completo 3x3">
+      <div class="mosaic-meta">
+        <span>Vista completa del feed</span>
+        <span>Publicar de 09 a 01 para que el mosaico arme correctamente</span>
+      </div>
+
+      <div class="mosaic">
+        <article class="tile brand-tile">
+          <div class="tile-inner">
+            <div class="logo">
+              <div class="logo-name">Rio Maggiore</div>
+              <div class="logo-sub">Residencial Club</div>
+            </div>
+            <p class="kicker">Armenia · Quindio</p>
+          </div>
+          <span class="tile-number">01</span>
+        </article>
+
+        <article class="tile" style="--img:url('assets/renders/town-house-rio-maggiore.png'); --pos:center; --top:0.1; --bottom:0.18;">
+          <div class="tile-inner">
+            <h2 class="title">Town<br>House</h2>
+          </div>
+          <span class="tile-number">02</span>
+        </article>
+
+        <article class="tile copy-tile">
+          <div class="tile-inner">
+            <p class="kicker">Lanzamiento</p>
+            <h2 class="title small">Arquitectura entre jardines.</h2>
+          </div>
+          <span class="tile-number">03</span>
+        </article>
+
+        <article class="tile" style="--img:url('assets/brochure-images/brochure-image-25.jpg'); --pos:center; --top:0.08; --bottom:0.16;">
+          <div class="tile-inner">
+            <p class="kicker">Casa Campestre</p>
+            <h2 class="title small">Piscina, jardin y paisaje.</h2>
+          </div>
+          <span class="tile-number">04</span>
+        </article>
+
+        <article class="tile date-tile">
+          <div class="tile-inner">
+            <h2 class="launch-highlight">Gran<br>lanzamiento</h2>
+            <h2 class="launch-subtitle">Salas de<br>venta</h2>
+          </div>
+          <span class="tile-number">05</span>
+        </article>
+
+        <article class="tile" style="--img:url('assets/brochure-images/brochure-image-26.jpg'); --pos:center; --top:0.5; --mid:0.24; --bottom:0.56; --shade:0.32;">
+          <div class="tile-inner">
+            <p class="kicker">Club residencial</p>
+            <h2 class="title small">Vivir como destino.</h2>
+          </div>
+          <span class="tile-number">06</span>
+        </article>
+
+        <article class="tile copy-tile">
+          <div class="tile-inner">
+            <p class="kicker">240 apartamentos</p>
+            <div class="facts">
+              <div class="fact">45<br>m²</div>
+              <div class="fact">90<br>m²</div>
+              <div class="fact">120<br>m²</div>
+            </div>
+          </div>
+          <span class="tile-number">07</span>
+        </article>
+
+        <article class="tile" style="--img:url('assets/renders/town-house-rio-maggiore.png'); --pos:center; --top:0.12; --bottom:0.32;">
+          <div class="tile-inner">
+            <p class="kicker">Km 7 via La Tebaida</p>
+            <h2 class="title small">Eje Cafetero</h2>
+          </div>
+          <span class="tile-number">08</span>
+        </article>
+
+        <article class="tile cta-tile">
+          <div class="tile-inner">
+            <h2 class="title small">Agenda tu visita.</h2>
+            <div class="button">WhatsApp</div>
+            <p class="copy">Showroom Rio Maggiore · Armenia, Quindio.</p>
+          </div>
+          <span class="tile-number">09</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="export-grid" aria-label="Piezas individuales para exportar">
+      <h2>Tiles individuales</h2>
+      <p class="hero-copy">Usa esta sección para exportar cada cuadro en 1080x1080. Para Instagram, publica en orden inverso: 09, 08, 07, 06, 05, 04, 03, 02, 01.</p>
+      <div class="tiles-list">
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 01</span><span>Arriba izquierda</span></div>
+          <div class="tile brand-tile"><div class="tile-inner"><div class="logo"><div class="logo-name">Rio Maggiore</div><div class="logo-sub">Residencial Club</div></div><p class="kicker">Armenia · Quindio</p></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 02</span><span>Arriba centro</span></div>
+          <div class="tile" style="--img:url('assets/renders/town-house-rio-maggiore.png'); --pos:center; --top:0.1; --bottom:0.18;"><div class="tile-inner"><h2 class="title">Town<br>House</h2></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 03</span><span>Arriba derecha</span></div>
+          <div class="tile copy-tile"><div class="tile-inner"><p class="kicker">Lanzamiento</p><h2 class="title small">Arquitectura entre jardines.</h2></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 04</span><span>Centro izquierda</span></div>
+          <div class="tile" style="--img:url('assets/brochure-images/brochure-image-25.jpg'); --pos:center; --top:0.08; --bottom:0.16;"><div class="tile-inner"><p class="kicker">Casa Campestre</p><h2 class="title small">Piscina, jardin y paisaje.</h2></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 05</span><span>Centro</span></div>
+          <div class="tile date-tile"><div class="tile-inner"><h2 class="launch-highlight">Gran<br>lanzamiento</h2><h2 class="launch-subtitle">Salas de<br>venta</h2></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 06</span><span>Centro derecha</span></div>
+          <div class="tile" style="--img:url('assets/brochure-images/brochure-image-26.jpg'); --pos:center; --top:0.5; --mid:0.24; --bottom:0.56; --shade:0.32;"><div class="tile-inner"><p class="kicker">Club residencial</p><h2 class="title small">Vivir como destino.</h2></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 07</span><span>Abajo izquierda</span></div>
+          <div class="tile copy-tile"><div class="tile-inner"><p class="kicker">240 apartamentos</p><div class="facts"><div class="fact">45<br>m²</div><div class="fact">90<br>m²</div><div class="fact">120<br>m²</div></div></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 08</span><span>Abajo centro</span></div>
+          <div class="tile" style="--img:url('assets/renders/town-house-rio-maggiore.png'); --pos:center; --top:0.12; --bottom:0.32;"><div class="tile-inner"><p class="kicker">Km 7 via La Tebaida</p><h2 class="title small">Eje Cafetero</h2></div></div>
+        </article>
+        <article class="tile-card">
+          <div class="tile-label"><span>Tile 09</span><span>Abajo derecha</span></div>
+          <div class="tile cta-tile"><div class="tile-inner"><h2 class="title small">Agenda tu visita.</h2><div class="button">WhatsApp</div><p class="copy">Showroom Rio Maggiore · Armenia, Quindio.</p></div></div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
