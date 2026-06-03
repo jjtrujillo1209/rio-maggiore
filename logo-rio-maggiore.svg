@@ -1,0 +1,39 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+    </style>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="200" cy="200" r="190" fill="#1C2B1A" stroke="#D4AF6A" stroke-width="3"/>
+  
+  <!-- Background Wave Pattern -->
+  <g opacity="0.1" stroke="#D4AF6A" stroke-width="1" fill="none">
+    <path d="M 80 180 Q 120 170 160 180" />
+    <path d="M 80 195 Q 120 185 160 195" />
+    <path d="M 80 210 Q 120 200 160 210" />
+    <path d="M 80 225 Q 120 215 160 225" />
+    <path d="M 240 180 Q 280 170 320 180" />
+    <path d="M 240 195 Q 280 185 320 195" />
+    <path d="M 240 210 Q 280 200 320 210" />
+    <path d="M 240 225 Q 280 215 320 225" />
+  </g>
+  
+  <!-- Main River Wave -->
+  <path d="M 100 130 Q 150 110 200 120 Q 250 130 300 110" fill="none" stroke="#D4AF6A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 90 155 Q 140 135 200 145 Q 260 155 310 135" fill="none" stroke="#D4AF6A" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Text: RÍO MAGGIORE -->
+  <text x="200" y="220" font-family="'Playfair Display', serif" font-size="52" font-weight="700" text-anchor="middle" fill="#F5F0E8" letter-spacing="2">
+    RÍO MAGGIORE
+  </text>
+  
+  <!-- Dividing Line -->
+  <line x1="120" y1="245" x2="280" y2="245" stroke="#D4AF6A" stroke-width="1.5"/>
+  
+  <!-- Text: RESIDENCIAL CLUB -->
+  <text x="200" y="275" font-family="'Playfair Display', serif" font-size="24" font-weight="400" text-anchor="middle" fill="#D4AF6A" letter-spacing="3">
+    RESIDENCIAL CLUB
+  </text>
+</svg>
